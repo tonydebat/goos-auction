@@ -13,6 +13,32 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>com.objogate.wl</groupId>
+      <artifactId>wl-core</artifactId>
+      <version>a256</version>
+    </dependency>    
+    <dependency>
+      <groupId>com.objogate.wl</groupId>
+      <artifactId>wl-swing</artifactId>
+      <version>a256</version>
+    </dependency>    
+    <dependency>
+      <groupId>com.objogate.wl</groupId>
+      <artifactId>wl-swing-src</artifactId>
+      <version>a256</version>
+    </dependency>
+    <dependency>
+    <groupId>org.hamcrest</groupId>
+    <artifactId>hamcrest-all</artifactId>
+    <version>1.1</version>
+    </dependency>
+    <dependency>
+        <groupId>jivesoftware</groupId>
+        <artifactId>smack</artifactId>
+        <version>3.1.0</version>
+    </dependency>
+    
   </dependencies>
 
   <build>
@@ -35,5 +61,6 @@
       </plugin>
     </plugins>
   </build>
+
 
 </project>
