@@ -2,6 +2,8 @@ package org.goos.auction;
 
 import static org.hamcrest.Matchers.equalTo;
 
+import org.goos.auction.ui.MainWindow;
+
 import com.objogate.wl.swing.AWTEventQueueProber;
 import com.objogate.wl.swing.driver.JFrameDriver;
 import com.objogate.wl.swing.driver.JLabelDriver;
@@ -20,6 +22,6 @@ public class AuctionSniperDriver extends JFrameDriver{
 
 		  public void showsSniperStatus(String statusText) {
 		    new JLabelDriver(
-		      this, named(Main.SNIPER_STATUS_NAME)).hasText(equalTo(statusText));
+		      this, named(MainWindow.SNIPER_STATUS_NAME)).hasText(equalTo(statusText));
 		  }
 }
