@@ -5,7 +5,7 @@ public class ApplicationRunner {
 	public static final String SNIPER_PASSWORD = "sniper";
 	public static final String XMPP_HOSTNAME = "localhost";
 	private static final String STATUS_JOINING = "Joining";
-	private static final String STATUS_LOST = "LOST";
+	private static final String STATUS_LOST = "Lost";
 	private AuctionSniperDriver driver;
 
 	public void startBiddingIn(final FakeAuctionServer auction) {

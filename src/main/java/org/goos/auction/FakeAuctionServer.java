@@ -9,7 +9,7 @@ import org.jivesoftware.smack.packet.Message;
 public class FakeAuctionServer {
 	private final SingleMessageListener messageListener = new SingleMessageListener();
 
-	public static final String ITEM_ID_AS_LOGIN = "auction-";
+	public static final String ITEM_ID_AS_LOGIN = "auction-%s";
 	public static final String AUCTION_RESOURCE = "Auction";
 	public static final String XMPP_HOSTNAME = "localhost";
 	private static final String AUCTION_PASSWORD = "auction";
@@ -25,11 +25,12 @@ public class FakeAuctionServer {
 
 	public void startSellingItem() throws XMPPException {
 		connection.connect();
-		connection.login(format(ITEM_ID_AS_LOGIN, itemId), AUCTION_PASSWORD,
-				AUCTION_RESOURCE);
+		connection.login(String.format(ITEM_ID_AS_LOGIN, itemId),
+				AUCTION_PASSWORD, AUCTION_RESOURCE);
 		connection.getChatManager().addChatListener(new ChatManagerListener() {
 			public void chatCreated(Chat chat, boolean createdLocally) {
 				currentChat = chat;
+				chat.addMessageListener(messageListener);
 			}
 		});
 	}
@@ -37,18 +38,13 @@ public class FakeAuctionServer {
 	public void hasReceivedJoinRequestFromSniper() throws InterruptedException {
 		messageListener.receivesAMessage();
 	}
-	
+
 	public void announceClosed() throws XMPPException {
 		currentChat.sendMessage(new Message());
 	}
-	
+
 	public void stop() {
 		connection.disconnect();
-	}
-
-	private String format(String itemIdAsLogin, String itemId2) {
-		return new StringBuilder().append(itemIdAsLogin).append(itemId2)
-				.toString();
 	}
 
 	public String getItemId() {
