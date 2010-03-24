@@ -6,7 +6,7 @@ import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
 
 public class FakeAuctionServer {
-	  public static final String ITEM_ID_AS_LOGIN = "auction-%s";
+	  public static final String ITEM_ID_AS_LOGIN = "auction-";
 	  public static final String AUCTION_RESOURCE = "Auction";
 	  public static final String XMPP_HOSTNAME = "localhost";
 	  private static final String AUCTION_PASSWORD = "auction";
@@ -33,8 +33,7 @@ public class FakeAuctionServer {
 	  }
 
 	  private String format(String itemIdAsLogin, String itemId2) {
-		// TODO Auto-generated method stub
-		return null;
+		return new StringBuilder().append(itemIdAsLogin).append(itemId2).toString();
 	}
 
 	public String getItemId() {

@@ -1,6 +1,8 @@
-package org.goos.auction;
+package org.goos.auction.ui;
 
 import javax.swing.JFrame;
+
+import org.goos.auction.Main;
 
 public class MainWindow extends JFrame {
 

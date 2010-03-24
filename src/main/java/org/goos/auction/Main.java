@@ -2,10 +2,12 @@ package org.goos.auction;
 
 import javax.swing.SwingUtilities;
 
+import org.goos.auction.ui.MainWindow;
+
 public class Main {
 
-	public static final String MAIN_WINDOW_NAME = "bubbles";
-	public static final String SNIPER_STATUS_NAME = "sniper-name";
+	public static final String MAIN_WINDOW_NAME = "Auction Sniper Main";
+	public static final String SNIPER_STATUS_NAME = "sniper status";
 	private MainWindow ui;
 
 	public Main() throws Exception {
