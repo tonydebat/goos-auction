@@ -20,6 +20,8 @@ public class MainWindow extends JFrame {
 
   private static final long serialVersionUID = 1L;
 
+  public static final String STATUS_BIDDING = "Bidding";
+
   public MainWindow() {
     super("Auction Sniper");
     setName(Main.MAIN_WINDOW_NAME);

@@ -1,6 +1,5 @@
 package org.goos.auction;
 
-import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
@@ -26,6 +25,7 @@ public class SingleMessageListener implements MessageListener {
 
   public void receivesAMessage(Matcher<? super String> messageMatcher) throws InterruptedException {
     final Message message = messages.poll(5, TimeUnit.SECONDS);
-    assertThat(message, hasProperty("body", messageMatcher));
+    assertThat("Message", message, is(notNullValue()));
+    assertThat(message.getBody(), messageMatcher);
   }
 }
