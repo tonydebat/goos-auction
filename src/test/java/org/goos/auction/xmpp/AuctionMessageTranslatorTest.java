@@ -17,7 +17,7 @@ public class AuctionMessageTranslatorTest {
 
   public static final Chat UNUSED_CHAT = null;
 
-  private final AuctionMessageTranslator translator = new AuctionMessageTranslator();
+  private final AuctionMessageTranslator translator = new AuctionMessageTranslator(listener);
 
   @Test
   public void notifiesAuctionClosedWhenCloseMessageReceived() throws Exception {
@@ -32,4 +32,20 @@ public class AuctionMessageTranslatorTest {
 
     translator.processMessage(UNUSED_CHAT, message);
   }
+
+  @Test
+  public void notifiesBidDetailsWhenCurrentPriceMessageReceived() throws Exception {
+    context.checking(new Expectations() {
+      {
+        exactly(1).of(listener).currentPrice(192, 7);
+      }
+    });
+
+    Message message = new Message();
+    message.setBody("SOLVersion: 1.1; Event: PRICE; CurrentPrice: 192; Increment: 7; Bidder: Someone else;");
+
+    translator.processMessage(UNUSED_CHAT, message);
+
+  }
+
 }
